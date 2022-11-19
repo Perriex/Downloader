@@ -1,0 +1,16 @@
+name: Download Quartues Device Support
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:      
+      - name: Download
+        run: wget https://downloads.intel.com/akdlm/software/acdsinst/22.1std/915/ib_installers/cyclone-22.1std.0.915.qdz
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.1
+        with:
+          name: cyclone-22.1std.0.915.qdz
+          path: ./cyclone-22.1std.0.915.qdz
